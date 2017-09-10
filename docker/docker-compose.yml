@@ -6,8 +6,6 @@ services:
           - "6379:6379"
   mysql:
       image: mysql
-      volumes:
-          - ~/tutorial/docker/data/mysql:/var/lib/mysql
       environment:
           MYSQL_ROOT_PASSWORD: root
       ports:
@@ -20,8 +18,8 @@ services:
           - "80:80"
           - "443:443"
       volumes:
-          - ~/tutorial/Projects/:/var/www/
-          - ~/tutorial/docker/conf/nginx/:/etc/nginx
+          - ~/tutorial/Projects:/var/www
+          - ~/tutorial/docker/conf/nginx:/etc/nginx
           - ~/tutorial/docker/logs/nginx:/var/log/nginx
   fpm:
       image: lyberteam/php7-fpm
@@ -33,5 +31,5 @@ services:
           - mysql
           - redis
       volumes:
-          - ~/tutorial/Projects/:/var/www
+          - ~/tutorial/Projects:/var/www
           - ~/tutorial/docker/logs/php-fpm:/var/log/php-fpm
