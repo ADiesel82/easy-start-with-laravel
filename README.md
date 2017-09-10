@@ -99,3 +99,7 @@ Let's use another command to create MySQL database:
 ~~~
 docker exec -t docker_mysql_1 mysql -u root -proot -e "CREATE DATABASE tutorial"
 ~~~
+
+Here you are. Everything is ready for use. Try to open in a browser: http://localhost/
+
+Nginx config: docker/conf/nginx/conf.d/tutorial.conf
