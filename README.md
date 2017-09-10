@@ -23,3 +23,14 @@ cd tutorial/php
 git clone https://github.com/ADiesel82/easy-start-with-laravel.git tutorial 
 ```
 
+Let's install NGINX, Redis, MySQL and PHP with docker:
+```
+cd docker
+docker-compose up -d
+```
+
+*"docker-compose up -d"* - runs docker containers in the background
+
+For more information: https://docs.docker.com/compose/reference/overview/
+
+  

@@ -24,15 +24,14 @@ services:
           - ~/tutorial/docker/conf/nginx/:/etc/nginx
           - ~/tutorial/docker/logs/nginx:/var/log/nginx
   fpm:
-      image: scento/docker-php7-xdebug-composer
+      image: lyberteam/php7-fpm
       expose:
-          - 9001
+          - 9000
       ports:
           - 7000
       links:
           - mysql
           - redis
-          - sphinx
       volumes:
           - ~/tutorial/Projects/:/var/www
           - ~/tutorial/docker/logs/php-fpm:/var/log/php-fpm
