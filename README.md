@@ -18,7 +18,8 @@ Clone this tutorial to you PC.
 
 ```
 cd ~
-mkdir -p test/php
-cd test/php
+mkdir -p tutorial/php
+cd tutorial/php
 git clone https://github.com/ADiesel82/easy-start-with-laravel.git tutorial 
 ```
+

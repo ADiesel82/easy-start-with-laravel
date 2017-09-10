@@ -1,0 +1,38 @@
+version: "2.1"
+services:
+  redis:
+      image: redis
+      ports:
+          - "6379:6379"
+  mysql:
+      image: mysql
+      volumes:
+          - ~/tutorial/docker/data/mysql:/var/lib/mysql
+      environment:
+          MYSQL_ROOT_PASSWORD: root
+      ports:
+          - "3306:3306"
+  nginx:
+      image: nginx
+      links:
+          - fpm
+      ports:
+          - "80:80"
+          - "443:443"
+      volumes:
+          - ~/tutorial/Projects/:/var/www/
+          - ~/tutorial/docker/conf/nginx/:/etc/nginx
+          - ~/tutorial/docker/logs/nginx:/var/log/nginx
+  fpm:
+      image: scento/docker-php7-xdebug-composer
+      expose:
+          - 9001
+      ports:
+          - 7000
+      links:
+          - mysql
+          - redis
+          - sphinx
+      volumes:
+          - ~/tutorial/Projects/:/var/www
+          - ~/tutorial/docker/logs/php-fpm:/var/log/php-fpm
